@@ -1,9 +1,10 @@
-
 // bmp.c
 // Very basic support for BMP files.
+// 2015 - Created by Fred Nora.
+
 // We get an address calling the kernel given an index
 // we're we find a pre-loaded image.
-// 2015 - Created by Fred Nora.
+
 
 #include "gram3d.h"
 
@@ -186,8 +187,6 @@ bmpDisplayBMP (
         (unsigned int *) (address + OffsetForBase);
     unsigned char *palette_index = 
         (unsigned char *) &pal_address;
-
-
 
 //------------------------------
 

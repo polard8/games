@@ -56,11 +56,11 @@ int registerDS(void)
     // PID
     // Get the PID of the server.
     __pid = (int) getpid();
-    if ( __pid < 0 )
+    if (__pid < 0)
     {
         // #debug
-        gwssrv_debug_print ("registerDS: [FAIL] __pid\n");
-        printf             ("registerDS: [FAIL] __pid\n");
+        gwssrv_debug_print ("registerDS: __pid\n");
+        printf             ("registerDS: __pid\n");
         exit(1);
 
         return (int) (-1);
@@ -85,12 +85,7 @@ int registerDS(void)
     return 0;
 }
 
-
 //
-// End.
+// End
 //
-
-
-
-
 

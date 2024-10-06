@@ -1,5 +1,6 @@
-
 // gui.h
+// gui structure?
+// Created by Fred Nora.
 
 #ifndef ____GUI_H
 #define ____GUI_H    1

@@ -24,18 +24,23 @@ static long __new_mouse_y=0;
 static int __mouse_initialized = FALSE;
 
 
+//
+// ====================================================
+//
+
 // Onde esta o mouse? em que janela?
 // simple implementation.
 // get the old one in the 32bit version of gramado.
 
 void mouse_at(void)
 {
-    register int i=0;
     struct gws_window_d *w;
+    register int i=0;
+
     for (i=0; i<WINDOW_COUNT_MAX; i++)
     {
         w = (void*) windowList[i];
-        if ( (void*) w != NULL )
+        if ((void*) w != NULL)
         {
             if (w->magic == 1234)
             {
@@ -132,8 +137,8 @@ void compose(void)
 // we flush it, validate it, show the cursor and return.
 
     Dirty = (int) is_background_dirty();
-
-    if (Dirty == TRUE){
+    if (Dirty == TRUE)
+    {
         gws_show_backbuffer();
         validate_background();  
         return;
@@ -152,7 +157,7 @@ void compose(void)
 // remember: we're using 15 fps refresh,
 // we can change this in the kernel.
 
-    if(comp_config_use_mouse == TRUE)
+    if (comp_config_use_mouse == TRUE)
         __display_mouse_cursor();
 
 // Validate the frame.
@@ -162,18 +167,17 @@ void compose(void)
     //__update_fps();
 }
 
-
 // global
 void comp_initialize_mouse(void)
 {
     unsigned long w = gws_get_device_width();
     unsigned long h = gws_get_device_height();
-
     int hotspotx=0;
     int hotspoty=0;
-    if(w>=0 && w<=800)
+
+    if (w>=0 && w<=800)
         hotspotx = (w >> 1);
-    if(h>=0 && h<=800)
+    if (h>=0 && h<=800)
         hotspoty = (h >> 1);
 
     __old_mouse_x = hotspotx;
