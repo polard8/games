@@ -1,6 +1,6 @@
-
 // demos.c
 // A place for demos.
+// Created by Fred Nora.
 
 #include "gram3d.h"
 
@@ -1357,14 +1357,14 @@ void demoFlyingCubeSetup(void)
     
     for (count=0; count<CUBE_MAX; count++)
     {
-        cube = (void*) malloc( sizeof( struct cube_model_d ) );
+        cube = (void*) malloc( sizeof(struct cube_model_d) );
         if ((void*) cube == NULL){
             printf("cube\n");
             exit(1);
         }
 
-        // Create terrain
-        if (count==0){
+        // Pick the last created cube as our terrain.
+        if (count == 0){
             terrain = (struct cube_model_d *) cube;
         }
 
@@ -1416,13 +1416,21 @@ void demoFlyingCubeSetup(void)
             (float) DEFAULT_CUBE_INITIAL_DELTA_Z;
             //(float) 0.00005f;
 
+        // -------------------
+        // Horizontal position
+
         // left or right
-        //srand(count);
-        //rand1 = (rand() % 25);
+        //srand( rtl_jiffies() % count );
+        //rand1 = (rand() % count);
+        //rand1 = (rand1 % 32);
         //cube->hposition = (float) 0.0f;
         cube->hposition = (float) -2.0f + (float) 0.8f * (float) count;
+        //cube->hposition = (float) -2.0f + (float) 0.45f * (float) count;
         //cube->hposition = (float) -1.5f + (float) 0.4f * (float) rand1;
         //cube->hposition = (float) 0.0f;
+
+        // -------------------
+        // Vertical position
 
         cube->vposition = (float) 0.0f;
         
